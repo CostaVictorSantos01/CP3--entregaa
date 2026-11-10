@@ -1,10 +1,7 @@
-/* CP3 — Portfólio de Victor dos Santos Costa
-   Features: tema claro/escuro (localStorage), formulário com validação
-   + histórico de mensagens (localStorage) e gráfico em canvas. */
+
 (function () {
   'use strict';
 
-  /* ---------- helpers de localStorage (à prova de falhas) ---------- */
   function lerStorage(chave, padrao) {
     try {
       const v = localStorage.getItem(chave);
@@ -15,12 +12,11 @@
     try { localStorage.setItem(chave, JSON.stringify(valor)); } catch (e) { /* ignora */ }
   }
 
-  /* ---------- 1. Tema claro/escuro persistente ---------- */
   function aplicarTema(tema) {
     document.documentElement.setAttribute('data-tema', tema);
     const btn = document.getElementById('botao-tema');
     if (btn) {
-      btn.textContent = tema === 'escuro' ? '☀️ Tema claro' : '🌙 Tema escuro';
+      btn.textContent = tema === 'escuro' ? ' Tema claro' : ' Tema escuro';
       btn.setAttribute('aria-pressed', String(tema === 'escuro'));
     }
   }
@@ -44,7 +40,6 @@
     aplicarTema(lerStorage('tema', 'claro'));
   }
 
-  /* ---------- 2. Formulário: validação + feedback + histórico ---------- */
   function iniciarFormulario() {
     const form = document.getElementById('form-contato');
     if (!form) return;
@@ -99,7 +94,6 @@
       feedback.textContent = texto;
     }
 
-    // máscara de telefone enquanto digita
     telefone.addEventListener('input', function () {
       let d = telefone.value.replace(/\D/g, '').slice(0, 11);
       let out = d;
@@ -110,7 +104,6 @@
       telefone.value = out;
     });
 
-    // validação ao sair do campo e correção em tempo real
     Object.keys(regras).forEach(function (nome) {
       const campo = form.elements[nome];
       campo.addEventListener('blur', function () { mostrarErro(campo, erroDoCampo(campo)); });
@@ -198,7 +191,6 @@
     renderizarHistorico();
   }
 
-  /* ---------- 3. Gráfico de barras (canvas) ---------- */
   function iniciarGrafico() {
     const canvas = document.getElementById('skillsCanvas');
     if (!canvas) return;
