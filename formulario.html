@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário - Victor dos Santos Costa</title>
+ <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="curriculo.html">Currículo</a></li>
+        <li><a href="formulario.html">Formulário</a></li>
+        <li><a href="multimidia.html">Multimídia</a></li>
+        <li><a href="graficos.html">Gráficos</a></li>
+      </ul>
+    </nav>
+
+    <h1>Victor dos Santos Costa</h1>
+    <p class="subtitle">Fale comigo</p>
+  </header>
+
+  <main>
+    <div class="cards-grid">
+
+      <section class="card">
+        <h2>Entre em Contato</h2>
+        <p>Preencha o formulário abaixo para entrar em contato comigo. :D</p>
+
+        <form id="form-contato" novalidate>
+          <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="Nome" minlength="3" required>
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="Email" required>
+
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="Telefone" pattern="\(\d{2}\) \d{4,5}-\d{4}" placeholder="(11) 97356-3037" required>
+
+          <label for="assunto">Assunto</label>
+          <select id="assunto" name="Assunto" required>
+            <option value="">Selecione...</option>
+            <option value="Proposta de trabalho">Proposta de trabalho</option>
+            <option value="Dúvida">Dúvida</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Outro">Outro</option>
+          </select>
+
+          <fieldset>
+            <legend>Prefere ser contatado por:</legend>
+            <label class="opcao-inline"><input type="radio" name="Preferencia" value="Email" checked> E-mail</label>
+            <label class="opcao-inline"><input type="radio" name="Preferencia" value="WhatsApp"> WhatsApp</label>
+            <label class="opcao-inline"><input type="radio" name="Preferencia" value="Telefone"> Ligação</label>
+          </fieldset>
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="Mensagem" rows="6" minlength="10" required></textarea>
+
+          <button type="submit" class="botao">Enviar mensagem</button>
+        </form>
+      </section>
+
+      <section class="card" id="historico">
+        <h2>Mensagens enviadas neste navegador</h2>
+        <ul id="lista-mensagens" class="lista-mensagens"></ul>
+        <button type="button" class="botao" id="limpar-historico" hidden>Limpar histórico</button>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <ul class="contato-lista">
+      <li><a href="https://wa.link/68aj5n" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+      <li>vsi.gco03@gmail.com</li>
+      <li>(11) 97356-3037</li>
+    </ul>
+    <p>&copy; 2026 Victor dos Santos Costa. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="./js/scripts.js"></script>
+</body>
+</html>
